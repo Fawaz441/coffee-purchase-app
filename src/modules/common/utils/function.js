@@ -1,0 +1,1 @@
+export const getHitSlop = (number) => ({ top: number, left: number, right: number, bottom: number })
