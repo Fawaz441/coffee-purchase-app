@@ -74,7 +74,7 @@ function MyTabBar({ state, descriptors, navigation }) {
                         <View style={[LAYOUT.flex1, LAYOUT.centers]}>
                             <ContainImage
                                 source={icon}
-                                styles={{ tintColor: isFocused ? COLORS.primary : "#4E5053" }}
+                                style={{ tintColor: isFocused ? COLORS.primary : "#4E5053" }}
                                 height={24}
                                 width={24}
                                 isDefault
