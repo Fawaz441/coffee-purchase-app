@@ -7,7 +7,7 @@ import HOME_IMAGES from '../assets/images'
 import COLORS from '../../../assets/styles/colors'
 import { CoffeeBeans, SearchBar, CoffeeList } from '../components'
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     return (
         <Container edges={['top']}>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -31,8 +31,8 @@ const HomeScreen = () => {
                     <TextSemiBold style={styles.header}>Find the best coffee for you</TextSemiBold>
                     <SearchBar />
                 </View>
-                <CoffeeList />
-                <CoffeeBeans />
+                <CoffeeList navigation={navigation} />
+                <CoffeeBeans navigation={navigation} />
             </ScrollView>
         </Container>
     )

@@ -7,14 +7,14 @@ import { cofeeTypes } from '../../common/utils/constants'
 import COMMON_IMAGES from '../../common/assets/images'
 
 const products = [
-    { category: cofeeTypes.Cappuccino, description: "Medium Roasted", price: '4.20', image: COMMON_IMAGES.coffeebeans1 },
+    { category: "Robusta Beans", description: "Medium Roasted", price: '4.20', image: COMMON_IMAGES.coffeebeans1 },
     { category: cofeeTypes.Cappuccino, description: "With Steamed Milk", price: '4.20', image: COMMON_IMAGES.coffeebeans2 },
     { category: cofeeTypes.Cappuccino, description: "With Steamed Milk", price: '4.20', image: COMMON_IMAGES.coffeebeans3 },
     { category: cofeeTypes.Cappuccino, description: "With Steamed Milk", price: '4.20', image: COMMON_IMAGES.coffeebeans4 },
 
 ]
 
-const CoffeeBeans = () => {
+const CoffeeBeans = ({ navigation }) => {
     return (
         <View>
             <TextMedium style={styles.header}>Coffee beans</TextMedium>
@@ -31,6 +31,7 @@ const CoffeeBeans = () => {
                         category={item.category}
                         price={item.price}
                         description={item.description}
+                        navigation={navigation}
                     />
                 )}
             />

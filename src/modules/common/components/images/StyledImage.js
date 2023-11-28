@@ -6,7 +6,7 @@ const ContainImage = ({ source, height, width, isDefault = false, style }) => {
         <Image
             source={source}
             {...isDefault && { defaultSource: source }}
-            style={{ width, height, ...style }}
+            style={{ width, height, flexShrink: 0, ...style }}
             resizeMode='contain'
         />
     )
@@ -17,7 +17,7 @@ const CoverImage = ({ source, height, width, isDefault = false, style }) => {
         <Image
             source={source}
             {...isDefault && { defaultSource: source }}
-            style={{ width, height, ...style }}
+            style={{ width, height, flexShrink: 0, ...style }}
             resizeMode='cover'
         />
     )

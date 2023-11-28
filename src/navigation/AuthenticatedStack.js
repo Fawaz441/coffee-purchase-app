@@ -1,5 +1,4 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../modules/home/screens/HomeScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SCREENS from './screens';
 import { TouchableWithoutFeedback, View, Text } from 'react-native';
@@ -7,6 +6,7 @@ import ICONS from '../assets/icons';
 import { ContainImage } from '../modules/common/components';
 import COLORS from '../assets/styles/colors';
 import LAYOUT from '../assets/styles/layout';
+import { ProductDetailScreen, HomeScreen } from '../modules/home/screens';
 
 
 const Tab = createBottomTabNavigator();
@@ -103,6 +103,7 @@ const AuthenticatedStack = () => {
     return (
         <Stack.Navigator initialRouteName={SCREENS.App} screenOptions={{ headerShown: false }}>
             <Stack.Screen name={SCREENS.App} component={Tabs} />
+            <Stack.Screen name={SCREENS.ProductDetail} component={ProductDetailScreen} />
         </Stack.Navigator>
     )
 }

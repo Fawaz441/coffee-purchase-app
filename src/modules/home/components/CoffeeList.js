@@ -16,7 +16,7 @@ const products = [
 
 ]
 
-const CoffeeList = () => {
+const CoffeeList = ({ navigation }) => {
     const [activeTab, setActiveTab] = useState(coffeeTypeList[0])
     return (
         <View>
@@ -53,6 +53,7 @@ const CoffeeList = () => {
                     keyExtractor={(item, index) => index}
                     renderItem={({ item }) => (
                         <Product
+                            navigation={navigation}
                             image={item.image}
                             category={item.category}
                             price={item.price}

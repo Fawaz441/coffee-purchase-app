@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import { ContainImage, CoverImage } from '../images/StyledImage'
@@ -6,33 +6,40 @@ import LAYOUT from '../../../../assets/styles/layout'
 import COMMON_ICONS from '../../assets/icons'
 import COLORS from '../../../../assets/styles/colors'
 import { TextRegular, TextSemiBold } from '../texts/Texts'
+import { navigateToScreen } from '../../utils/function'
+import SCREENS from '../../../../navigation/screens'
 
-const Product = ({ category, price, description, image, rating }) => {
+const Product = ({ category, price, description, image, rating, navigation }) => {
     return (
         <LinearGradient
             colors={['#252A32', 'rgba(38, 43, 51, 0.00)']}
             start={{ x: 0.9, y: 0.1 }}
             locations={[0.4, 1]}
             style={styles.container}>
-            <View style={styles.image_container}>
-                <CoverImage
-                    source={image}
-                    isDefault
-                    height={126}
-                    width={126}
-                />
-                {rating && <View style={styles.rating_view}>
-                    <ContainImage
-                        source={COMMON_ICONS.star}
-                        height={10}
-                        width={10}
+            <TouchableWithoutFeedback onPress={() => navigateToScreen(navigation, SCREENS.ProductDetail, {
+                category, price, description, image, rating
+            })}>
+
+                <View style={styles.image_container}>
+                    <CoverImage
+                        source={image}
                         isDefault
+                        height={126}
+                        width={126}
                     />
-                    <TextSemiBold style={styles.rating}>
-                        {rating}
-                    </TextSemiBold>
-                </View>}
-            </View>
+                    {rating && <View style={styles.rating_view}>
+                        <ContainImage
+                            source={COMMON_ICONS.star}
+                            height={10}
+                            width={10}
+                            isDefault
+                        />
+                        <TextSemiBold style={styles.rating}>
+                            {rating}
+                        </TextSemiBold>
+                    </View>}
+                </View>
+            </TouchableWithoutFeedback>
             <TextRegular style={styles.category}>{category}</TextRegular>
             <TextRegular style={styles.description}>{description}</TextRegular>
             <View style={styles.price_view}>
